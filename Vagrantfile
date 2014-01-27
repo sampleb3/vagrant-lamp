@@ -12,7 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "centos"
   
-#  config.vm.hostname = "vagrant"
+  config.vm.hostname = "centos"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -97,7 +97,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # end
   config.vm.provision :chef_solo do |chef|
     #chef.add_recipe     "build-essential"
-    #chef.add_recipe     "apache2"
+    chef.add_recipe     "apache2"
     #chef.add_recipe     "apache2::mod_php5"
     #chef.add_recipe     "apache2::mod_rewrite"
     #chef.add_recipe     "mysql"
@@ -107,15 +107,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #chef.add_recipe     "php::module_mysql"
     #chef.add_recipe     "vim"
 
-#    chef.json = {
-#      :apache => {
-#        :default_site_enabled => true },
+    chef.json = {
+      :apache => {
+        :default_site_enabled => true,
+        #:docroot_dir => "/var/www/html"
+        #:docroot_dir => "/home/vagrant/html"
+      },
 #      :mysql => {
 #        :server_root_password => "123456",
 #        :server_repl_password => "123456",
 #        :server_debian_password => "123456"
 #      }
-#    }
+    }
   end
   
   # Enable provisioning with chef server, specifying the chef server URL,
