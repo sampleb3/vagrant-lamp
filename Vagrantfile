@@ -105,7 +105,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe     "mysql::server"
     #chef.add_recipe     "php"
     #chef.add_recipe     "php::module_mysql"
-    #chef.add_recipe     "vim"
+    chef.add_recipe     "vim"
 
     chef.json = {
       :apache => {
