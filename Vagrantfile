@@ -100,9 +100,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe     "apache2"
     #chef.add_recipe     "apache2::mod_php5"
     #chef.add_recipe     "apache2::mod_rewrite"
-    #chef.add_recipe     "mysql"
-    #chef.add_recipe     "mysql::client"
-    #chef.add_recipe     "mysql::server"
+    chef.add_recipe     "mysql"
+    chef.add_recipe     "mysql::client"
+    chef.add_recipe     "mysql::server"
     #chef.add_recipe     "php"
     #chef.add_recipe     "php::module_mysql"
     #chef.add_recipe     "vim"
@@ -113,11 +113,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         #:docroot_dir => "/var/www/html"
         #:docroot_dir => "/home/vagrant/html"
       },
-#      :mysql => {
-#        :server_root_password => "123456",
-#        :server_repl_password => "123456",
-#        :server_debian_password => "123456"
-#      }
+      :mysql => {
+        :server_root_password => "123456",
+        :server_repl_password => "123456",
+        :server_debian_password => "123456"
+      }
     }
   end
   
