@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     chef.json = {
       :apache => {
-        :default_site_enabled => true,
+        :default_site_enabled => true
       },
       :mysql => {
         :server_root_password => "123456",
