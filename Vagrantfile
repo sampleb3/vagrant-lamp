@@ -9,6 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "https://github.com/2creatives/vagrant-centos/releases/download/v6.5.1/centos65-x86_64-20131205.box"
 
   config.vm.network :forwarded_port, guest: 80, host: 8082
+  config.vm.network :forwarded_port, guest: 3306, host: 8806
 
   config.vm.provision :chef_solo do |chef|
     chef.add_recipe     "apache2"
@@ -21,7 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     chef.json = {
       :apache => {
-        :default_site_enabled => true,
+        :default_site_enabled => true
       },
       :mysql => {
         :server_root_password => "123456",
